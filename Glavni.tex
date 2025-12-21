@@ -1,0 +1,270 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[croatian]{babel}
+
+\usepackage[a4paper,top=2.5cm,bottom=2.5cm,left=2.5cm,right=2.5cm,headheight=1.25cm,headsep=1.25cm,footskip=1.25cm]{geometry}
+\usepackage[croatian,refpage]{nomencl}
+\makenomenclature
+\usepackage{fancyhdr}
+\usepackage{tocloft}
+\usepackage{lastpage}
+\usepackage{amsmath}  
+\usepackage{bm} 
+\usepackage{tikz}
+\usetikzlibrary{patterns,decorations.pathmorphing}
+\usetikzlibrary{arrows.meta, positioning, shapes, decorations.markings}
+\usepackage{tikz-cd}
+\usepackage[labelfont=bf,textfont=bf]{caption}
+\usepackage{amsfonts}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage{mathrsfs}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{csquotes}
+\usepackage{longtable}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.18}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{amsthm}
+
+\usepackage{titlesec}
+
+\titleformat{\section} % format \section
+  {\bfseries\fontsize{18}{22}\selectfont} % bold + 18pt + 22pt leading
+  {\thesection.} % section number with dot
+  {1em} % space between number and title
+  {} % before title code
+
+\titleformat{\subsection} % optional: format \subsection
+  {\bfseries\fontsize{16}{20}\selectfont}
+  {\thesubsection.}
+  {1em}
+  {}
+
+\titleformat{\subsubsection} % optional
+  {\bfseries\fontsize{14}{18}\selectfont}
+  {\thesubsubsection.}
+  {1em}
+  {}
+
+\usepackage{etoolbox}
+
+% Patch \tableofcontents to change title font
+\patchcmd{\tableofcontents}
+  {\section*{\contentsname}} % original
+  {{\centering\bfseries\fontsize{20}{24}\selectfont \contentsname\par}} % new font
+  {}{} % success/failure messages
+
+% Theorem environments
+\newtheorem{theorem}{Teorem}
+\newtheorem{definition}[theorem]{Definicija}
+\newtheorem{corollary}[theorem]{Korolar}
+\newtheorem{proposition}[theorem]{Propozicija}
+\newtheorem{remark}[theorem]{Napomena}
+
+% Listings (Matlab)
+\lstset{
+    language=Matlab,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!50!black},
+    stringstyle=\color{orange},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    framerule=1pt,
+    backgroundcolor=\color{gray!10}
+}
+
+% Dot after section numbers
+\titlelabel{\thetitle.\quad}
+\renewcommand{\cftsecpresnum}{}
+\renewcommand{\cftsecaftersnum}{.}
+\renewcommand{\cftsubsecpresnum}{}
+\renewcommand{\cftsubsecaftersnum}{.}
+
+% Header/footer style (optional, you can customize)
+\usepackage{fancyhdr}
+
+% Define custom style
+\fancypagestyle{numbered}{
+    \fancyhf{}
+    \fancyhead[L]{\fontsize{12}{14}\selectfont Fakultet strojarstva i brodogradnje}
+    \fancyhead[R]{\fontsize{12}{14}\selectfont Računalna dinamika fluida}
+    \fancyfoot[L]{\fontsize{12}{14}\selectfont Pero Perić}
+    \fancyfoot[C]{}
+    \fancyfoot[R]{\thepage}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+}
+
+% Apply to all normal pages
+\pagestyle{numbered}
+
+% Make plain style (used by TOC, LOF, LOT, chapter* pages) the same as numbered
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyhead[L]{\fontsize{12}{14}\selectfont Fakultet strojarstva i brodogradnje}
+    \fancyhead[R]{\fontsize{12}{14}\selectfont Računalna dinamika fluida}
+    \fancyfoot[L]{\fontsize{12}{14}\selectfont Pero Perić}
+    \fancyfoot[C]{}
+    \fancyfoot[R]{\thepage}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+}
+
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FRONT PAGE (same layout as your picture)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+\begin{center}
+
+{\fontsize{20}{28}\selectfont \text{FAKULTET STROJARSTVA I BRODOGRADNJE}}\\
+
+\vspace*{0.5cm}
+{\fontsize{18}{22}\selectfont SVEUČILIŠTE U ZAGREBU}
+
+\vspace*{5cm}
+
+{\fontsize{22}{24}\selectfont Seminarski rad iz kolegija}\\
+\vspace*{1cm}
+{\fontsize{24}{24}\selectfont \textbf{\textit{Računalna dinamika fluida}}}
+
+\vspace{1cm}
+
+{\fontsize{18}{18}\selectfont prof. dr. sc. Spužva Bob}\\
+{\fontsize{18}{18}\selectfont mag. ing. Patrik Zvijezda}
+
+\vfill
+
+\begin{flushleft}
+{\fontsize{14}{18}\selectfont Ime i prezime: \textit{Pero Perić}}\\
+{\fontsize{12}{18}\selectfont Matični broj: 0000000000}
+\end{flushleft}
+
+
+\vspace{1.5cm}
+
+\begin{flushright}
+{\fontsize{14}{18}\selectfont Zagreb, 2025/2026}
+\end{flushright}
+
+
+
+\end{center}
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FRONT MATTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\pagenumbering{Roman}
+
+\tableofcontents
+
+\newpage
+\listoffigures
+\addcontentsline{toc}{section}{Popis slika}
+
+\newpage
+\listoftables
+\addcontentsline{toc}{section}{Popis tablica}
+
+\newpage
+\section*{Popis oznaka}
+\addcontentsline{toc}{section}{Popis oznaka}
+% \printnomenclature % uncomment if you actually use nomenclatures
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MAIN MATTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\pagenumbering{arabic}
+
+\section{Zadatak}
+Navier-Stokes jednadžbe
+
+\begin{equation}
+\begin{cases}
+\rho \left( \frac{\partial u}{\partial t} + u \frac{\partial u}{\partial x} + v \frac{\partial u}{\partial y} + w \frac{\partial u}{\partial z} \right) = - \frac{\partial p}{\partial x} + \mu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2} \right) + \rho f_x, \\[1em]
+\rho \left( \frac{\partial v}{\partial t} + u \frac{\partial v}{\partial x} + v \frac{\partial v}{\partial y} + w \frac{\partial v}{\partial z} \right) = - \frac{\partial p}{\partial y} + \mu \left( \frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} + \frac{\partial^2 v}{\partial z^2} \right) + \rho f_y, \\[1em]
+\rho \left( \frac{\partial w}{\partial t} + u \frac{\partial w}{\partial x} + v \frac{\partial w}{\partial y} + w \frac{\partial w}{\partial z} \right) = - \frac{\partial p}{\partial z} + \mu \left( \frac{\partial^2 w}{\partial x^2} + \frac{\partial^2 w}{\partial y^2} + \frac{\partial^2 w}{\partial z^2} \right) + \rho f_z, \\[0.5em]
+\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0
+\end{cases}
+\end{equation}
+
+
+\section{Ručni proračun}
+Detaljno opisati ručni proračun sa svim jednadžbama i slikama.
+
+\begin{equation}
+\begin{cases}
+\rho \left( \frac{\partial \mathbf{u}}{\partial t} + (\mathbf{u} \cdot \nabla) \mathbf{u} \right) = - \nabla p + \mu \nabla^2 \mathbf{u} + \rho \mathbf{f}, \\[0.5em]
+\nabla \cdot \mathbf{u} = 0
+\end{cases}
+\end{equation}
+
+
+\section{Proračun}
+Detaljno opisati postupak rješavanja zadatka.\cite{lanczos1986}
+
+
+\section{Usporedba rezultata}
+Usporediti.\\
+
+Einsteinove jednadžbe polja. 
+
+\begin{equation}
+R_{\mu\nu} - \frac{1}{2} g_{\mu\nu} R + g_{\mu\nu} \Lambda = \frac{8 \pi G}{c^4} T_{\mu\nu}, \quad \mu,\nu = 0,1,2,3
+\end{equation}
+
+\noindent gdje je Ricci tenzor definiran kao:
+
+\begin{equation}
+R_{\mu\nu} = \partial_\lambda \Gamma^\lambda_{\mu\nu} - \partial_\nu \Gamma^\lambda_{\mu\lambda} + \Gamma^\lambda_{\mu\nu} \Gamma^\sigma_{\lambda\sigma} - \Gamma^\sigma_{\mu\lambda} \Gamma^\lambda_{\nu\sigma}
+\end{equation}
+
+\noindent a skalarski Ricci tenzor je:
+
+\begin{equation}
+R = g^{\mu\nu} R_{\mu\nu}
+\end{equation}
+
+\noindent Christoffelovi simboli \(\Gamma^\lambda_{\mu\nu}\) su definirani preko metrike \(g_{\mu\nu}\) kao:
+
+\begin{equation}
+\Gamma^\lambda_{\mu\nu} = \frac{1}{2} g^{\lambda\sigma} \left( \partial_\mu g_{\nu\sigma} + \partial_\nu g_{\mu\sigma} - \partial_\sigma g_{\mu\nu} \right)
+\end{equation}
+
+
+
+\section{Zaključak}
+Kratki sadržaj i zaključci analize.
+
+\section{Dodatak}
+Sve snimke zaslona, rezultati.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LITERATURA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\addcontentsline{toc}{section}{Literatura}
+\bibliographystyle{unsrt}
+\bibliography{literatura_RDF}
+
+\end{document}
