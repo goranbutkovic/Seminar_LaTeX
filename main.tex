@@ -150,7 +150,7 @@
 
 \vspace{0.1cm}
 
-{\fontsize{18}{18}\selectfont mag. ing. Patrik Zvijezda}
+{\fontsize{18}{18}\selectfont Patrik Zvijezda, univ. mag. ing. mech.}
 
 \vfill
 
@@ -200,7 +200,7 @@
 \pagenumbering{arabic}
 
 \section{Zadatak}
-Navier-Stokes jednadžbe
+Navier-Stokes jednadžbe:
 
 \begin{equation}
 \begin{cases}
@@ -213,7 +213,7 @@ Navier-Stokes jednadžbe
 
 
 \section{Ručni proračun}
-Detaljno opisati ručni proračun sa svim jednadžbama i slikama.
+Detaljno opisati ručni proračun sa svim jednadžbama i slikama:
 
 \begin{equation}
 \begin{cases}
@@ -224,13 +224,10 @@ Detaljno opisati ručni proračun sa svim jednadžbama i slikama.
 
 
 \section{Proračun}
-Detaljno opisati postupak rješavanja zadatka.
+Detaljno opisati postupak rješavanja zadatka.\\
 
-
-\section{Usporedba rezultata}
-Usporediti.\cite{Noether1918}\\
-
-Einsteinove jednadžbe polja. 
+\noindent
+Einsteinove jednadžbe polja:
 
 \begin{equation}
 R_{\mu\nu} - \frac{1}{2} g_{\mu\nu} R + g_{\mu\nu} \Lambda = \frac{8 \pi G}{c^4} T_{\mu\nu}, \quad \mu,\nu = 0,1,2,3
@@ -239,22 +236,72 @@ R_{\mu\nu} - \frac{1}{2} g_{\mu\nu} R + g_{\mu\nu} \Lambda = \frac{8 \pi G}{c^4}
 \noindent gdje je Ricci tenzor definiran kao:
 
 \begin{equation}
-R_{\mu\nu} = \partial_\lambda \Gamma^\lambda_{\mu\nu} - \partial_\nu \Gamma^\lambda_{\mu\lambda} + \Gamma^\lambda_{\mu\nu} \Gamma^\sigma_{\lambda\sigma} - \Gamma^\sigma_{\mu\lambda} \Gamma^\lambda_{\nu\sigma}
+R_{\mu\nu} = \partial_\lambda \Gamma^\lambda_{\mu\nu} - \partial_\nu \Gamma^\lambda_{\mu\lambda} + \Gamma^\lambda_{\mu\nu} \Gamma^\sigma_{\lambda\sigma} - \Gamma^\sigma_{\mu\lambda} \Gamma^\lambda_{\nu\sigma},
 \end{equation}
 
 \noindent a skalarski Ricci tenzor je:
 
 \begin{equation}
-R = g^{\mu\nu} R_{\mu\nu}
+R = g^{\mu\nu} R_{\mu\nu}.
 \end{equation}
 
 \noindent Christoffelovi simboli \(\Gamma^\lambda_{\mu\nu}\) su definirani preko metrike \(g_{\mu\nu}\) kao:
 
 \begin{equation}
-\Gamma^\lambda_{\mu\nu} = \frac{1}{2} g^{\lambda\sigma} \left( \partial_\mu g_{\nu\sigma} + \partial_\nu g_{\mu\sigma} - \partial_\sigma g_{\mu\nu} \right)
+\Gamma^\lambda_{\mu\nu} = \frac{1}{2} g^{\lambda\sigma} \left( \partial_\mu g_{\nu\sigma} + \partial_\nu g_{\mu\sigma} - \partial_\sigma g_{\mu\nu} \right).
 \end{equation}
 
 
+
+\section{Usporedba rezultata}
+Noetherin teorem povezuje kontinuirane simetrije djelovanja i zakone očuvanja \cite{Noether1918}.\\
+
+\noindent
+Djelovanje se definira kao:
+
+\begin{equation}
+S[\phi] = \int \mathcal{L}(\phi,\partial_\mu\phi,x)\,d^4x.
+\end{equation}
+
+\noindent
+Za infinitezimalnu transformaciju sustava koja ostavlja djelovanje invarijantnim, varijacija djelovanja jednaka je nuli:
+
+\begin{equation}
+\delta S = 0.
+\end{equation}
+
+\noindent
+Gustoća Lagrangiana može se promijeniti za totalnu divergenciju:
+
+\begin{equation}
+\delta\mathcal{L} = \partial_\mu K^\mu.
+\end{equation}
+
+\noindent
+Na ljusci, polja zadovoljavaju Euler–Lagrangeove jednadžbe:
+
+\begin{equation}
+\frac{\partial\mathcal{L}}{\partial\phi}
+- \partial_\mu
+\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}
+= 0.
+\end{equation}
+
+\noindent
+Noetherina struja defnira se kao:
+
+\begin{equation}
+J^\mu =
+\frac{\partial\mathcal{L}}{\partial(\partial_\mu\phi)}
+\delta\phi-K^\mu.
+\end{equation}
+
+\noindent
+Iz toga, slijedi Noetherin zakon očuvanja:
+
+\begin{equation}
+\boxed{\partial_\mu J^\mu = 0.}
+\end{equation}
 
 \section{Zaključak}
 Kratki sadržaj i zaključci analize.
